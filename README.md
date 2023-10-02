@@ -1,4 +1,4 @@
-# BlockNote: Decentralized Note-Taking App
+# BlockNote: Decentralized Note-Taking App 
 
 BlockNote is a decentralized note-taking platform that leverages blockchain technology, specifically Motoko, to provide users with a secure and tamper-resistant platform for creating and managing notes. The application ensures a high level of security and trust in the integrity of the notes by storing them on the blockchain, making it decentralized and resistant to unauthorized alterations.
 
