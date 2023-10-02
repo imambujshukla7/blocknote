@@ -1,0 +1,18 @@
+{
+  "name": "blocknote",
+  "version": "0.1.0",
+  "scripts": {
+    "start": "dfx start",
+    "deploy": "dfx deploy",
+    "canister": "dfx canister",
+    "build": "dfx build",
+    "test": "dfx test"
+  },
+  "devDependencies": {
+    "@dfinity/candid": "^0.10.1",
+    "@dfinity/agent": "^0.8.0"
+  },
+  "dependencies": {
+    "@dfinity/actor": "^0.7.0"
+  }
+}
