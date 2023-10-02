@@ -22,7 +22,7 @@ BlockNote is a decentralized note-taking platform that leverages blockchain tech
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/yourusername/blocknote.git
+   git clone https://github.com/imambujshukla7/blocknote.git
    ```
 
 2. Navigate to the project directory:
