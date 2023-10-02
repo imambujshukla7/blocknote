@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BlockNote</title>
+</head>
+<body>
+    <h1>BlockNote - Decentralized Note-Taking App</h1>
+    <div id="notes"></div>
+    <textarea id="noteContent" placeholder="Enter your note"></textarea>
+    <button onclick="createNote()">Create Note</button>
+
+    <script type="module">
+        import { Actor, HttpAgent } from '@dfinity/agent';
+        import { idlFactory as blocknoteIdlFactory, canisterId as blocknoteCanisterId } from 'dfx-generated/blocknote';
+
+        const agent = new HttpAgent();
+        const blockNote = Actor.createActor(blocknoteIdlFactory, { agent, canisterId: blocknoteCanisterId });
+
+        async function renderNotes() {
+            const notes = await blockNote.getNotes();
+            const notesContainer = document.getElementById('notes');
+            notesContainer.innerHTML = '<h2>Notes</h2>';
+            notes.forEach(note => {
+                notesContainer.innerHTML += `<div><strong>${note.id}:</strong> ${note.content}</div>`;
+            });
+        }
+
+        async function createNote() {
+            const noteContent = document.getElementById('noteContent').value;
+            if (noteContent.trim() !== '') {
+                await blockNote.createNote(noteContent);
+                document.getElementById('noteContent').value = '';
+                renderNotes();
+            } else {
+                alert('Note content cannot be empty!');
+            }
+        }
+
+        renderNotes();
+    </script>
+</body>
+</html>
