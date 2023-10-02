@@ -1,0 +1,20 @@
+{
+  "canisters": {
+    "blocknote": {
+      "main": "src/blocknote/main.mo",
+      "type": "motoko"
+    }
+  },
+  "defaults": {
+    "build": {
+      "packtool": "@dfinity/candid",
+      "args": "--frontend js"
+    }
+  },
+  "networks": {
+    "local": {
+      "bind": "http://localhost:8000",
+      "type": "ephemeral"
+    }
+  }
+}
